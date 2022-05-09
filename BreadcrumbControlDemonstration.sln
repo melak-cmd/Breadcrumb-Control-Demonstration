@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell", "Shell\Shell.csproj", "{91AA67EE-19FB-482E-90CF-E1267674B427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathEditor", "PathEditor\PathEditor.csproj", "{64D11BE8-DB20-4986-B7C3-05CACE92E780}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91AA67EE-19FB-482E-90CF-E1267674B427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AA67EE-19FB-482E-90CF-E1267674B427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AA67EE-19FB-482E-90CF-E1267674B427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AA67EE-19FB-482E-90CF-E1267674B427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D11BE8-DB20-4986-B7C3-05CACE92E780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D11BE8-DB20-4986-B7C3-05CACE92E780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D11BE8-DB20-4986-B7C3-05CACE92E780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D11BE8-DB20-4986-B7C3-05CACE92E780}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
