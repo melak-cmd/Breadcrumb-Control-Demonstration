@@ -1,5 +1,10 @@
-﻿using System;
+﻿using DevExpress.Xpf.Editors;
+
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-using DevExpress.Xpf.Editors;
 
 namespace PathEditor
 {
@@ -48,7 +51,7 @@ namespace PathEditor
     /// </summary>
     public class BreadcrumbControl : TextEdit
     {
-        private int pathItems;
+        private ObservableCollection<PathItem> pathItems;
 
         static BreadcrumbControl()
         {
@@ -57,25 +60,77 @@ namespace PathEditor
 
         public BreadcrumbControl()
         {
-            throw new System.NotImplementedException();
+            DependencyPropertyDescriptor descriptor = DependencyPropertyDescriptor.FromProperty(EditValueProperty, typeof(TextEdit));
+            descriptor.AddValueChanged(this, EditValChanged);
         }
 
-        public int PathItems
+        public ObservableCollection<PathItem> PathItems
         {
-            get => default;
+            get => pathItems;
             set
             {
+                pathItems = value;
             }
         }
 
-        public void EditValChanged(string sender, string args)
+        private void EditValChanged(object? sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            BreadcrumbControl? editor = sender as BreadcrumbControl;
+            PathItems.Clear();
+            string? valueString = editor.EditValue as string;
+
+            if (valueString == null)
+            {
+                return;
+            }
+
+            string[] dirsInCurrentPath = valueString.Split('\\');
+            string pathString = "";
+            for (int i = 0; i < dirsInCurrentPath.Count(); i++)
+            {
+                if (dirsInCurrentPath[i] == "")
+                {
+                    break;
+                }
+
+                pathString += dirsInCurrentPath[i] + "\\";
+
+                if (!Directory.Exists(pathString))
+                {
+                    Text = pathString.Substring(0, pathString.Length - dirsInCurrentPath[i].Length - 1);
+                    break;
+                }
+                PathItems.Add(new PathItem(GetDirs(pathString, i), dirsInCurrentPath[i], pathString, this));
+            }
         }
 
-        public void GetDirs(string path, string index)
+        public ObservableCollection<string> GetDirs(string path, int index)
         {
-            throw new System.NotImplementedException();
+            ObservableCollection<string> col = new ObservableCollection<string>();
+            string[] drs;
+            try
+            {
+                drs = Directory.GetDirectories(path);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                col = null;
+                return col;
+            }
+
+            foreach (string s in drs)
+            {
+                try
+                {
+                    Directory.GetDirectories(s);
+                    string[] dirsInCurrentPath = s.Split('\\');
+                    col.Add(dirsInCurrentPath[dirsInCurrentPath.Count() - 1]);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                }
+            }
+            return col;
         }
     }
 }

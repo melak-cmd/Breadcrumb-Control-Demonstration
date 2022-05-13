@@ -6,25 +6,29 @@ using System.Windows.Input;
 
 namespace PathEditor
 {
-    public class FolderButtonClick : ICommand
+    public class FolderButtonClick: ICommand
     {
         private BreadcrumbControl owner;
 
-        public event EventHandler? CanExecuteChanged;
-
         public FolderButtonClick(BreadcrumbControl ow)
         {
-            throw new System.NotImplementedException();
+            owner = ow;
+        }
+
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested+=value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
         public bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            owner.EditValue = parameter;
         }
     }
 }
