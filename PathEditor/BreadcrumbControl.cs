@@ -51,7 +51,7 @@ namespace PathEditor
     /// </summary>
     public class BreadcrumbControl : TextEdit
     {
-        private ObservableCollection<PathItem> pathItems;
+        private ObservableCollection<PathItem> pathItems = new ObservableCollection<PathItem>();
 
         static BreadcrumbControl()
         {

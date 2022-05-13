@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathEditor", "PathEditor\PathEditor.csproj", "{B954A94E-76BE-4C31-B19D-544215AA7342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathEditor", "PathEditor\PathEditor.csproj", "{B954A94E-76BE-4C31-B19D-544215AA7342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathEditorTests", "PathEditorTests\PathEditorTests.csproj", "{3D8F0DB9-CB90-4D07-B2C6-42D047163365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathEditorTests", "PathEditorTests\PathEditorTests.csproj", "{3D8F0DB9-CB90-4D07-B2C6-42D047163365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{94B25341-A802-4D92-9195-A2EA5F0A0F14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3D8F0DB9-CB90-4D07-B2C6-42D047163365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D8F0DB9-CB90-4D07-B2C6-42D047163365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D8F0DB9-CB90-4D07-B2C6-42D047163365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B25341-A802-4D92-9195-A2EA5F0A0F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B25341-A802-4D92-9195-A2EA5F0A0F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B25341-A802-4D92-9195-A2EA5F0A0F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B25341-A802-4D92-9195-A2EA5F0A0F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

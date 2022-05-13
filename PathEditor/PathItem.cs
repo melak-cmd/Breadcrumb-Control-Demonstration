@@ -37,26 +37,20 @@ namespace PathEditor
 
         public ObservableCollection<string> Dirs
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public string Folder
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public string FullPathToFolder
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public ICommand ClickCommand
